@@ -1,1 +1,22 @@
-{"fractrhythm_1": "123456"}
+[
+    {
+        "username": "ex00097",
+        "email": "badacid223@gmail.com",
+        "password": "scrypt:32768:8:1$Z2KMHk79HRdLF5wt$c29b4488c6bbbd05873a9e89cca001eacd9c8177915036184e2053da738af663f705b519cf2982bbfbee08f87b0dab2b5d5dd7b7e8abb0d5e23f4802758e2639"
+    },
+    {
+        "username": "Ignored_0",
+        "email": "badacid223@gmail.com",
+        "password": "222222222222222222"
+    },
+    {
+        "username": "aaaaaaaaaaaaaaaaaaa",
+        "email": "aaaaaaaaaaaaaaaaaa@aaaa",
+        "password": "scrypt:32768:8:1$PEH1i65z7x3xn9b7$2964f29095d4e1085eb6e893114a8ba82060d506aa1466cb47db2c6b29e0b5d1e502fd7f324d04963d971f38ad55798793e96539ff6766062789abb3b3f8e5e1"
+    },
+    {
+        "username": "fractrhythm_1",
+        "email": "badacid223@gmail.com",
+        "password": "scrypt:32768:8:1$V0atXSXsNUWqUt3R$bcce96dfebdb611af41b980af580e4754c1c5a7dad33265a9bd591f40c50ca635b3832673e7aa644fd5b9905351b88f0c951c0f47984ba389fc27abc4521194b"
+    }
+]
