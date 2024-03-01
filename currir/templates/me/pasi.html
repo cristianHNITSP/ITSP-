@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<div class="container text-center"> <!-- Contenedor adicional con la clase text-center -->
+    <hr class="mt-4">
+
+    <div class="row featurette">
+        <div class="col-md-7 mx-auto">
+            <h2 class="featurette-heading fw-normal lh-1">Mixing. <span
+                    class="text-body-secondary">Mi segunda disciplina.</span></h2>
+            <p class="lead">Tengo una enorme pasión por la composición musical. 
+                Esto implica que también tengo los conocimientos técnicos para poder asegurar que los sonidos tengan relación entre sí. 
+                Por lo tanto, mis habilidades como mezclador son muy importantes.</p>
+        </div>
+        <div class="col-md-5 mx-auto">
+            <div class="col-md-5 order-md-1 mx-auto">
+                <img src="{{ url_for('send_static', path='img/mixing.png') }}" alt="Descripción de la imagen" width="350" height="300">
+            </div>
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7 order-md-2 mx-auto">
+            <h2 class="featurette-heading fw-normal lh-1">Producción Musical</h2>
+            <p class="lead">Como mencioné previamente, tengo una pasión por la música. Por lo tanto, 
+                la producción musical es muy importante en mi desarrollo, ya que es el proceso creativo 
+                que me permitirá llevar a cabo mi mezcla (mixing). 
+                Estos términos son casualmente confundidos o colocados bajo el mismo concepto.</p>
+        </div>
+        <div class="col-md-5 order-md-1 mx-auto">
+            <img src="{{ url_for('send_static', path='img/R.png') }}" alt="Descripción de la imagen" width="100%" height="100%">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7 mx-auto">
+            <h2 class="featurette-heading fw-normal lh-1">Programación. <span
+                    class="text-body-secondary">Mi disciplina en desarrollo actual. </span></h2>
+            <p class="lead">LLa programación es una disciplina que inesperadamente se me da naturalmente realizar, 
+                por lo tanto, opté por si me gusta la música, pero no puedo estudiarla, sí puedo programar y estudiar de ello. 
+                ¿Por qué no estudiar esta misma para desarrollar software para músicos?</p>
+        </div>
+        <div class="col-md-5 mx-auto">
+            <div class="col-md-5 order-md-1 mx-auto">
+                <img src="{{ url_for('send_static', path='img/OIP.jpg') }}" alt="Descripción de la imagen" width="350" height="300">
+            </div>
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+</div><!-- /.container -->
+
+{% endblock %}

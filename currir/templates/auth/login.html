@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="text-center">{% block title %}Inicio de sesión{% endblock %}</h1>
+                </div>
+
+                <div class="card-body">
+                    <form action="" method="post">
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Usuario"
+                                required minlength="4" maxlength="20">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="password" name="password" required
+                                placeholder="Contraseña" minlength="6" maxlength="40">
+                        </div>
+                        <br>
+                        <div class="text-center">
+                            <input type="submit" class="btn btn-primary" value="Iniciar sesión">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if not success %}
+<div class="error">
+    <div class="row justify-content-center">
+        {{ username }}
+    </div>
+</div>
+
+{% endif %}
+{% if not success %}
+<div class="error">
+    <div class="row justify-content-center">
+        {{ password }}
+    </div>
+</div>
+
+{% endif %}
+{% if not success %}
+<div class="error">
+    <div class="row justify-content-center">
+        {{ error_message }}
+    </div>
+</div>
+
+
+
+
+    {% endif %}
+    {% endblock %}
