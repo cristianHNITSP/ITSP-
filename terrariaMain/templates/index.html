@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}
+- Inicio
+{% endblock %}
+
+{% block content %}
+<style>
+        @font-face {
+        font-family: 'Andy';
+        src: url('/static/fonts/andy-mt-bold.ttf') format('truetype');
+    }
+
+    /* Estilos adicionales para imitar el estilo de Terraria */
+    .background-header {
+        position: relative;
+        overflow: hidden;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        max-width: 950px;
+        margin-left: auto;
+        margin-right: auto;
+        border: 3px solid #2a2016;
+        /* Bordes negros */
+        border-radius: 10px;
+        /* Esquinas redondeadas */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        font-family: 'Andy', sans-serif;
+        /* Sombra */
+    }
+
+    .carousel-caption h5,
+    .carousel-caption p {
+        color: #ffffff;
+        /* Texto blanco */
+        text-shadow: 2px 2px 4px #000000;
+        /* Sombra de texto */
+        font-family: 'VCR OSD Mono', monospace;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="%23ffffff" viewBox="0 0 8 8"%3E%3Cpath d="M4 0l-4 4 4 4 1-1-3-3 3-3-1-1z"/%3E%3C/svg%3E');
+        filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+        /* Sombra en los botones */
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        background-color: transparent;
+        /* Fondo transparente */
+        border: none;
+        /* Sin borde */
+    }
+
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Color de fondo al pasar el ratón */
+        border: none;
+        /* Sin borde */
+    }
+
+    /* Estilos para imágenes del carrusel */
+    .carousel-item img {
+        image-rendering: pixelated;
+        /* Renderizado como píxeles */
+    }
+
+</style>
+
+<div class="container">
+    <header class="background-header">
+        <img src="{{ url_for('send_static', path='img/brow_Back.jpg') }}" alt="Fondo"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; object-fit: cover;">
+        <div class="container">
+            sssssssssssssssss
+        </div>
+    </header>
+</div>
+{% endblock %}

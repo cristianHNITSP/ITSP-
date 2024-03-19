@@ -1,0 +1,227 @@
+{% extends 'base-tundra.html' %}
+
+{% block title %}
+- Registro
+{% endblock %}
+
+{% block content %}
+
+
+<style>
+    @font-face {
+        font-family: 'Andy';
+        src: url('/static/fonts/andy-mt-bold.ttf') format('truetype');
+    }
+
+    /* Estilos adicionales para el formulario de inicio de sesión al estilo de la Tundra de Terraria */
+    .card {
+        position: relative;
+        overflow: hidden;
+        /* Asegura que el GIF no sobresalga de la tarjeta */
+        border: 2px solid #24414E;
+        /* Borde oscuro */
+        border-radius: 10px;
+        /* Bordes redondeados */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        /* Sombra */
+        max-width: 300px;
+        /* Limitar el ancho del formulario */
+        padding: 20px;
+        /* Añadir espacio interno */
+        animation: terrariaLogoAnimation 3s ease-in-out infinite;
+        /* Animación del logo de Terraria */
+        background-image: url("{{ url_for('send_static', path='img/nav_bar_snow/Snowfall_Wall_(placed).gif') }}");
+        /* Ruta del archivo GIF */
+        background-size: 297px 475px;
+        /* Ajusta el tamaño del GIF para cubrir la tarjeta */
+        background-repeat: no-repeat;
+        /* Evita la repetición del GIF */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Andy', sans-serif;
+        /* Centra el contenido vertical y horizontalmente */
+        color: #24414E;
+        /* Color de texto */
+    }
+
+    @keyframes terrariaLogoAnimation {
+        0% {
+            transform: translateY(0) scale(1);
+        }
+
+        50% {
+            transform: translateY(-20px) scale(0.95);
+        }
+
+        100% {
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    .card-header {
+        border-bottom: 2px solid #AEB8BD;
+        /* Borde inferior oscuro */
+        /* Estirar el encabezado al tamaño de los campos de entrada */
+        /* Hacer el encabezado invisible */
+    }
+
+    .card-header h1 {
+        font-family: 'Andy', sans-serif;
+        /* Utiliza la fuente personalizada */
+        font-size: 32px; /* Tamaño de la fuente más grande */
+        text-align: center;
+        /* Centrar el texto */
+        margin-bottom: 0;
+        /* Eliminar margen inferior */
+        padding: 10px 0;
+        /* Espaciado interior */
+        color: #24414E;
+        /* Color de texto */
+    }
+
+    .form-control {
+        background-color: #FFFFFF;
+        /* Color de la Tundra */
+        color: #AEB8BD;
+        /* Color de texto */
+        border: 2px solid #24414E;
+        /* Borde oscuro */
+        border-radius: 5px;
+        /* Bordes redondeados */
+        margin-bottom: 10px;
+        /* Margen inferior */
+        padding: 8px;
+        /* Añadir espacio interno */
+    }
+
+    .form-control:focus {
+        border-color: #5F89AB;
+        /* Color de borde al estar enfocado */
+        box-shadow: 0 0 0 0.25rem #AEB8BD;
+        /* Sombra al estar enfocado */
+    }
+
+    .btn-primary {
+        background-color: #24414E;
+        /* Azul oscuro */
+        border: 2px solid #12243C;
+        /* Borde oscuro */
+        color: #FFFFFF;
+        /* Color de texto */
+        border-radius: 5px;
+        /* Bordes redondeados */
+        transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        /* Transición suave */
+        display: block;
+        /* Asegurar que el botón ocupe todo el ancho */
+        width: 100%;
+        /* Establecer ancho al 100% */
+        padding: 10px;
+        /* Añadir espacio interno */
+    }
+
+    .btn-primary:hover {
+        background-color: #5F89AB;
+        /* Color de fondo al pasar el mouse */
+        border-color: #24414E;
+        /* Color de borde al pasar el mouse */
+    }
+
+    .error {
+        color: #ff0000;
+        /* Color rojo para el mensaje de error */
+        font-size: 16px;
+        /* Tamaño de la fuente */
+        text-align: center;
+        /* Centrar el texto */
+        margin-top: 10px;
+        /* Margen superior */
+        font-family: 'Andy', sans-serif;
+        /* Fuente similar a la utilizada en Terraria */
+        background-color: rgba(255, 0, 0, 0.1);
+        /* Fondo claro para el mensaje */
+        padding: 10px;
+        /* Padding adicional para separar el contenido */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* Sombra para resaltar el mensaje */
+        display: none;
+        /* Ocultar el mensaje de error por defecto */
+    }
+
+    .error.active {
+        display: block;
+        /* Mostrar el mensaje de error cuando esté activo */
+    }
+
+    /* Estilos de Pixel Art */
+    .pixel-icon {
+        width: 30px;
+        height: 30px;
+        image-rendering: pixelated;
+        /* Renderizar como píxeles */
+    }
+
+    /* Animación para el enlace de "Regístrate aquí" */
+    .register-link {
+        transition: color 0.3s;
+        /* Transición suave del color */
+    }
+
+    .register-link:hover {
+        color: #00BFFF;
+        /* Cambiar color al pasar el mouse */
+    }
+</style>
+
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="d-flex justify-content-center">
+                    <div class="card">
+                        <div class="card-header">
+
+                            <!-- Icono de cerradura estilo pixel art -->
+                            <h1 class="text-center">Registro</h1>
+                        </div>
+
+                        <div class="card-body">
+                            <form action="" method="post">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="username" name="username"
+                                        placeholder="Usuario" required minlength="4" maxlength="20">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="Correo electrónico" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="password" name="password" required
+                                        placeholder="Contraseña" minlength="6" maxlength="40">
+                                </div>
+                                <div class="text-center">
+                                    <input type="submit" class="btn btn-primary" value="Registrar">
+                                </div>
+                                <div class="error {% if error_message_register %}active{% endif %}">
+                                    <div class="row justify-content-center">
+                                        {{ error_message_register }}
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="text-center mt-3">
+                                ¿Ya tienes una cuenta? <a href="{{url_for('auth.login')}}"
+                                    class="register-link">Inicia sesión aquí</a>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+{% endblock %}

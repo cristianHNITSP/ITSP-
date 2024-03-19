@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Terracomputitos {% block title %} {% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/styles.css">
+    <style>
+        @font-face {
+            font-family: 'Andy';
+            src: url('/static/fonts/andy-mt-bold.ttf') format('truetype');
+        }
+    
+        body,
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            font-family: 'Andy', sans-serif;
+        }
+    
+        @keyframes terrariaLogoAnimation {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+    
+            50% {
+                transform: translateY(-20px) scale(0.95);
+            }
+    
+            100% {
+                transform: translateY(0) scale(1);
+            }
+        }
+    
+        /* Animación para la aparición de la navbar */
+        @keyframes fadeInNavbar {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+    
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    
+        /* Animación del navbar inspirada en Terraria */
+        @keyframes navbarAnimation {
+            0% {
+                background-color: #2E8B57; /* Verde Hierba */
+                transform: scale(1);
+            }
+    
+            50% {
+                background-color: #8B4513; /* Marrón Tierra */
+                transform: scale(1.05);
+            }
+    
+            100% {
+                background-color: #2E8B57; /* Verde Hierba */
+                transform: scale(1);
+            }
+        }
+    
+        /* Background animation */
+        @keyframes backgroundFade {
+            from {
+                opacity: 0;
+            }
+    
+            to {
+                opacity: 1;
+            }
+        }
+    
+        /* Navbar styles */
+        .navbar {
+            background-image: url("{{ url_for('send_static', path='img/Forest_background_5.png') }}");
+            background-size: cover;
+            /* Ajusta el tamaño de la imagen de fondo para cubrir todo el contenedor */
+            background-repeat: no-repeat;
+            /* Evita la repetición de la imagen */
+            background-position: center;
+            /* Centra la imagen de fondo */
+            border: 3px solid #2a2016;
+            border-radius: 5px;
+            width: 60%;
+            margin: auto;
+            margin-top: 15px;
+            background-attachment: fixed;
+            animation: fadeInNavbar 0.5s ease-in-out, navbarAnimation 5s ease-in-out infinite;
+            font-family: 'Andy', sans-serif;
+        }
+    
+        .background-forest {
+            transition: background-image 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            background-image: url("{{ url_for('send_static', path='img/forest_back.png') }}");
+            animation: backgroundFade 0.5s ease-in-out;
+        }
+    
+        /* General styles */
+        html,
+        body {
+            height: 1500px;
+            margin: 0;
+            padding: 0;
+            transition: background-image 12s ease-in-out;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #c5a45d; /* Beige Claro */
+            font-family: 'VCR OSD Mono', monospace;
+        }
+    
+        /* Terrarium header styles */
+        .terraria-header {
+            text-align: center;
+            margin-top: 70px;
+            font-size: 36px;
+            margin-bottom: 70px;
+            height: 100px;
+        }
+    
+        .terraria-header img {
+            width: 720px;
+            margin-bottom: 0px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            animation: bounce 1.5s ease-in-out infinite, terrariaLogoAnimation 3s ease-in-out infinite;
+        }
+    
+        .terraria-header img:hover {
+            transform: scale(0.9);
+            filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.5));
+            cursor: pointer;
+        }
+    
+        @keyframes bounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+    
+        /* Navbar link styles */
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: #fff; /* Blanco */
+            font-size: 18px;
+            text-shadow: 1px 1px 2px #000;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            margin-left: 6px;
+            margin-top: 15px;
+            /* Márgen superior general */
+            /* Añadido espacio superior entre elementos */
+            /* Agrega margen derecho para separar el enlace del botón */
+        }
+    
+        /* Ajustar el margen superior del botón "nav-link active" */
+        .navbar-nav .nav-link.active {
+            margin-top: 15px;
+            /* Ajuste de margen superior */
+            /* Estilos adicionales para el botón activo */
+            transform: translateY(3px);
+            text-shadow: 1px 1px 2px #000;
+            background-color: #ffc107; /* Amarillo Arena */
+            border: 1px solid #ffc107; /* Amarillo Arena */
+            border-radius: 3px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        .navbar-nav .nav-link:hover {
+            color: #ffc107; /* Amarillo Arena */
+            background-color: #403020; /* Marrón Tierra */
+            border: 1px solid #ffc107; /* Amarillo Arena */
+            border-radius: 3px;
+            transform: translateY(-3px) scale(1.0);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: highlight 0.5s ease-in-out; /* Animación tipo Terraria */
+        }
+    
+        .navbar-toggler {
+            background-color: #7b6c52; /* Marrón Grava */
+            border: 2px solid #403020; /* Marrón Tierra */
+            border-radius: 5px;
+            padding: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+    
+        .navbar-nav .nav-link:hover {
+            color: #ffc107; /* Amarillo Arena */
+            border: 1px solid #ffc107; /* Amarillo Arena */
+            border-radius: 3px;
+            transform: translateY(-3px) scale(1.0);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: highlight 0.5s ease-in-out; /* Animación tipo Terraria */
+        }
+    
+        .navbar-toggler-icon {
+            background-color: rgba(197, 164, 93, 0.3); /* Color no especificado */
+        }
+    
+        @keyframes highlight {
+            0% {
+                transform: scale(1.0);
+            }
+    
+            50% {
+                transform: translateX(50px) scale(1.1);
+            }
+    
+            100% {
+                transform: scale(1.0);
+            }
+        }
+    
+        /* Animación para nav-link active */
+        .navbar-nav .nav-link.active:not(:hover) {
+            animation: terrariaAnimation 0.5s infinite alternate;
+        }
+    
+        @keyframes terrariaAnimation {
+            0% {
+                transform: scale(1);
+            }
+    
+            100% {
+                transform: scale(1.02);
+            }
+        }
+    </style>
+    
+</head>
+
+<body class="background-forest">
+    <header>
+        <div class="terraria-header">
+            <a href="{{url_for('index')}}">
+                <img src="{{ url_for('send_static', path='img/custom-terraria-logo.png') }}" alt="Terraria Logo">
+            </a>
+        </div>
+        <nav class="navbar {% if on_login_page %}background-tundra{% endif %}" data-bs-theme="dark">
+            <div class="container-fluid">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav justify-content-end">
+                        <a class="nav-link active" href="{{url_for('index')}}" style="margin-top: 10px; ">¡Nuevo!</a>
+                        {% if logged_in %}
+                        <a class="nav-link" href="{{url_for('account.account_user')}}">Cuenta</a>
+                        {% else %}
+                        <a class="nav-link" href="{{url_for('auth.login')}}">Iniciar Sesión</a>
+                        {% endif %}
+                        <a class="nav-link" href="https://terraria.fandom.com/wiki/Terraria_Wiki">Más información</a>
+                    </div>
+
+                </div>
+        </nav>
+    </header>
+    {% block content %}
+    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('click', function (event) {
+            // Comprueba si se hace clic en el botón del toggle o en un enlace de la barra de navegación
+            var isClickInsideNavbar = document.querySelector('.navbar-toggler').contains(event.target) || document.querySelector('.navbar-nav').contains(event.target);
+            if (!isClickInsideNavbar) {
+                // Cerrar la barra de navegación si se hace clic fuera de ella
+                var navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    navbarCollapse.classList.remove('show');
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
